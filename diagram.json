@@ -9,22 +9,28 @@
     { "type": "wokwi-led", "id": "ledGreen", "top": 150, "left": 200, "attrs": { "color": "green" } },
     { "type": "wokwi-led", "id": "ledYellow", "top": 200, "left": 200, "attrs": { "color": "yellow" } },
     { "type": "wokwi-led", "id": "ledRed", "top": 250, "left": 200, "attrs": { "color": "red" } },
-    { "type": "wokwi-buzzer", "id": "buzzer", "top": 320, "left": 200, "attrs": {} }
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 320, "left": 200, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r1", "top": 150, "left": 150, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 200, "left": 150, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 250, "left": 150, "attrs": { "value": "220" } }
   ],
   "connections": [
     [ "pressure:SIG", "esp32:34", "green", [] ],
     [ "pressure:VCC", "esp32:3V3", "red", [] ],
-    [ "pressure:GND", "esp32:GND", "black", [] ],
+    [ "pressure:GND", "esp32:GND.1", "black", [] ],
     [ "displacement:SIG", "esp32:35", "blue", [] ],
     [ "displacement:VCC", "esp32:3V3", "red", [] ],
-    [ "displacement:GND", "esp32:GND", "black", [] ],
-    [ "ledGreen:A", "esp32:25", "green", [] ],
-    [ "ledGreen:K", "esp32:GND", "black", [] ],
-    [ "ledYellow:A", "esp32:26", "yellow", [] ],
-    [ "ledYellow:K", "esp32:GND", "black", [] ],
-    [ "ledRed:A", "esp32:27", "red", [] ],
-    [ "ledRed:K", "esp32:GND", "black", [] ],
+    [ "displacement:GND", "esp32:GND.1", "black", [] ],
+    [ "r1:1", "esp32:25", "green", [] ],
+    [ "r1:2", "ledGreen:A", "green", [] ],
+    [ "ledGreen:K", "esp32:GND.1", "black", [] ],
+    [ "r2:1", "esp32:26", "yellow", [] ],
+    [ "r2:2", "ledYellow:A", "yellow", [] ],
+    [ "ledYellow:K", "esp32:GND.1", "black", [] ],
+    [ "r3:1", "esp32:27", "red", [] ],
+    [ "r3:2", "ledRed:A", "red", [] ],
+    [ "ledRed:K", "esp32:GND.1", "black", [] ],
     [ "buzzer:1", "esp32:32", "purple", [] ],
-    [ "buzzer:2", "esp32:GND", "black", [] ]
+    [ "buzzer:2", "esp32:GND.1", "black", [] ]
   ]
 }
